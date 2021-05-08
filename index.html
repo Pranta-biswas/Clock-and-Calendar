@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calender</title>
+    <!-- resources -->
+    <link rel="icon" href="resources/images/favicon/Pranta-biswas.png" />
+    <link rel="stylesheet" href="resources/css/styletwo.css" />
+    <link rel="stylesheet" href="resources/css/dycalendar.css" />
+    <link rel="stylesheet" href="resources/css/style.css" />
+  </head>
+  <body>
+    <section>
+      <!--clock start-->
+      <div id="clock">
+        <h2>The time is now</h2>
+        <div id="time">
+          <div><span id="hour">00</span><span>Hours</span></div>
+          <div><span id="minutes">00</span><span>Minutes</span></div>
+          <div><span id="seconds">00</span><span>Seconds</span></div>
+        </div>
+      </div>
+      <!--clock ends-->
+      <div class="box">
+        <div class="container">
+          <div id="dycalendar"></div>
+        </div>
+      </div>
+    </section>
+    <!-- resources js file -->
+    <script src="resources/js/dycalendar.js"></script>
+    <script>
+      dycalendar.draw({
+        target: "#dycalendar",
+        type: "month",
+        dayformat: "full",
+        monthformat: "full",
+        highlighttargetdate: true,
+        prevnextbutton: "show",
+      });
+
+      function clock() {
+        var hours = document.getElementById("hour");
+        var minutes = document.getElementById("minutes");
+        var seconds = document.getElementById("seconds");
+
+        var h = new Date().getHours();
+        var m = new Date().getMinutes();
+        var s = new Date().getSeconds();
+
+        hours.innerHTML = h;
+        minutes.innerHTML = m;
+        seconds.innerHTML = s;
+      }
+
+      var interval = setInterval(clock, 1000);
+    </script>
+  </body>
+</html>
